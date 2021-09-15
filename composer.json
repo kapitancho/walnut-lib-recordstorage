@@ -12,8 +12,8 @@
 		}
 	},
 	"require": {
-		"walnut/lib_jsonserializer": "dev-main",
-		"walnut/lib_fileaccessor": "dev-main"
+		"walnut/lib_jsonserializer": "^0.0.1",
+		"walnut/lib_fileaccessor": "^0.0.1"
 	},
 	"require-dev": {
 		"vimeo/psalm": "^4.9.3",
