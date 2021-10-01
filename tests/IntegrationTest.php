@@ -2,10 +2,8 @@
 
 use PHPUnit\Framework\TestCase;
 use Walnut\Lib\RecordStorage\ArrayDataAccessor\ArrayDataAccessorFactory;
-use Walnut\Lib\RecordStorage\ArrayDataAccessor\ArrayDataFilter;
 use Walnut\Lib\RecordStorage\ArrayDataSerializer\PhpArrayDataSerializer;
 use Walnut\Lib\RecordStorage\KeyValueStorage\InMemoryKeyValueStorage;
-use Walnut\Lib\RecordStorage\KeyValueStorage\KeyNotFoundException;
 use Walnut\Lib\RecordStorage\RecordStorage;
 use Walnut\Lib\RecordStorage\SerializedRecordStorage;
 
@@ -32,11 +30,9 @@ class IntegrationTest extends TestCase {
 		$accessor->store(self::KEY1, self::VALUE1);
 		$accessor->store(self::KEY2, self::VALUE2);
 		$this->assertCount(2, $accessor->all());
-		$this->assertCount(1, $accessor->byFilter(new class implements ArrayDataFilter {
-			public function isSatisfiedBy(array $entry): bool {
-				return $entry == IntegrationTest::VALUE2;
-			}
-		}));
+		$this->assertCount(1, $accessor->byFilter(
+			fn(array $entry): bool => $entry === IntegrationTest::VALUE2
+		));
 
 		$this->assertNotNull($accessor->byKey(self::KEY2));
 		$accessor->remove(self::KEY2);

@@ -3,7 +3,6 @@
 use PHPUnit\Framework\TestCase;
 use Walnut\Lib\RecordStorage\ArrayDataAccessor\ArrayDataAccessor;
 use Walnut\Lib\RecordStorage\ArrayDataAccessor\ArrayDataAccessorFactory;
-use Walnut\Lib\RecordStorage\ArrayDataAccessor\ArrayDataFilter;
 use Walnut\Lib\RecordStorage\RecordStorage;
 
 final class MockAccessorRecordStorage implements RecordStorage {
@@ -36,11 +35,7 @@ final class ArrayDataAccessorTest extends TestCase {
 
 	public function testByFilter(): void {
 		$this->assertEquals([[self::KEY]], $this->getAccessor()->byFilter(
-			new class implements ArrayDataFilter {
-				public function isSatisfiedBy(array $entry): bool {
-					return $entry[0] === ArrayDataAccessorTest::KEY;
-				}
-			}
+			fn(array $entry): bool => $entry[0] === ArrayDataAccessorTest::KEY
 		));
 	}
 

@@ -31,11 +31,7 @@ $accessor->retreive('product-id-1'); //['id' => ..., 'name' => ...]
 
 //Fetch the data by filter
 $accessor->byFilter(
-    new class implements ArrayDataFilter {
-		public function isSatisfiedBy(array $entry): bool {
-			return $entry['itemsInStock'] > 0;
-		}
-	}
+    fn(array $entry): bool => $entry['itemsInStock'] > 0
 ); //[1 record]
 
 //Remove it

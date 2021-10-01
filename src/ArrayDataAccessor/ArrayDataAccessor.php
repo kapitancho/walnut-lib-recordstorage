@@ -28,10 +28,14 @@ final class ArrayDataAccessor {
 		return array_values($this->retrieveRecords());
 	}
 
-	public function byFilter(ArrayDataFilter $dataFilter): ?array {
+	/**
+	 * @param callable(array): bool $dataFilter
+	 * @return array|null
+	 */
+	public function byFilter(callable $dataFilter): ?array {
 		return array_values(
 			array_filter($this->retrieveRecords(),
-				static fn(array $entry): bool => $dataFilter->isSatisfiedBy($entry)
+				static fn(array $entry): bool => $dataFilter($entry)
 			)
 		);
 	}
