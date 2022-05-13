@@ -9,7 +9,7 @@ use Walnut\Lib\JsonSerializer\JsonSerializer;
  */
 final class JsonArrayDataSerializer implements ArrayDataSerializer {
 	public function __construct(
-		private /*readonly*/ JsonSerializer $jsonSerializer
+		private readonly JsonSerializer $jsonSerializer
 	) { }
 
 	public function serialize(array $source): string {

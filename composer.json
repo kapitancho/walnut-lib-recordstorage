@@ -14,10 +14,10 @@
 	"require": {
 		"walnut/lib_transactioncontext": "^0.0.1",
 		"walnut/lib_jsonserializer": "^0.0.1",
-		"walnut/lib_fileaccessor": "^0.0.1"
+		"walnut/lib_fileaccessor": "^0.0.2"
 	},
 	"require-dev": {
-		"vimeo/psalm": "^4.9.3",
-		"phpunit/phpunit": "^9.5.9"
+		"vimeo/psalm": "^4.23.0",
+		"phpunit/phpunit": "^9.5.20"
 	}
 }

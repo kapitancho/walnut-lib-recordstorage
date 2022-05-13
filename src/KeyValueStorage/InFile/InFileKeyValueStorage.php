@@ -10,8 +10,8 @@ use Walnut\Lib\RecordStorage\KeyValueStorage\KeyValueStorage;
  */
 final class InFileKeyValueStorage implements KeyValueStorage {
 	public function __construct(
-		private /*readonly*/ KeyToFileNameMapper $keyToFileNameMapper,
-		private /*readonly*/ FileAccessor $fileAccessor
+		private readonly KeyToFileNameMapper $keyToFileNameMapper,
+		private readonly FileAccessor $fileAccessor
 	) { }
 
 	private function key(string $key): string {

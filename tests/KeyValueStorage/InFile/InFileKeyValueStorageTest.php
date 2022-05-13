@@ -37,6 +37,9 @@ final class MockFileAccessor implements FileAccessor {
 		// TODO: Implement fileExists() method.
 	}
 
+	public function appendToFile(string $file, string $content): void {
+	}
+
 }
 
 final class InFileKeyValueStorageTest extends TestCase {

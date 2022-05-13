@@ -13,7 +13,7 @@ final class CacheableRecordStorage implements RecordStorage {
 	private array $cache = [];
 	
 	public function __construct(
-		private /*readonly*/ RecordStorage $recordStorage
+		private readonly RecordStorage $recordStorage
 	) {}
 
 	/**

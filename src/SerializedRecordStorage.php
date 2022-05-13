@@ -11,8 +11,8 @@ use Walnut\Lib\RecordStorage\KeyValueStorage\KeyValueStorage;
 final class SerializedRecordStorage implements RecordStorage {
 
 	public function __construct(
-		private /*readonly*/ ArrayDataSerializer $dataSerializer,
-		private /*readonly*/ KeyValueStorage     $keyValueStorage
+		private readonly ArrayDataSerializer $dataSerializer,
+		private readonly KeyValueStorage     $keyValueStorage
 	) { }
 
 	/**

@@ -6,7 +6,7 @@ use Walnut\Lib\RecordStorage\RecordStorage;
 
 final class ArrayDataAccessorFactory {
 	public function __construct(
-		private /*readonly*/ RecordStorage $recordStorage,
+		private readonly RecordStorage $recordStorage,
 	) { }
 
 	public function accessor(string $recordKey): ArrayDataAccessor {

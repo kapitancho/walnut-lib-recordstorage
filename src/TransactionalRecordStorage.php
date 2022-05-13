@@ -13,7 +13,7 @@ final class TransactionalRecordStorage implements RecordStorage, TransactionCont
 	 * @var array<string, array[]>
 	 */
 	private array $transactionState = [];
-	public function __construct(private /*readonly*/ RecordStorage $recordStorage) { }
+	public function __construct(private readonly RecordStorage $recordStorage) { }
 
 	/**
 	 * @param string $key
